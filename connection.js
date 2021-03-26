@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 mongoose.Promise = global.Promise;
+
+//const mongouri = "mongodb+srv://admin123:admin123@cluster0.4hxea.mongodb.net/userlogindata?retryWrites=true&w=majority"
 mongoose
   .connect(process.env.MONGOURI, {
     useCreateIndex: true,
