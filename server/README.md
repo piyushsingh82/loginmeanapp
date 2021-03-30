@@ -21,3 +21,6 @@ npx create-react-app login-app
 And you will require to add some packages such as bootstrap redux,etc . you will be able to get the information after looking on package.json dev/dependecies
 
 npm install React-bootstrap react-redux
+
+
+MONGOURI=mongodb+srv://admin123:admin123@cluster0.4hxea.mongodb.net/userlogindata?retryWrites=true&w=majority
