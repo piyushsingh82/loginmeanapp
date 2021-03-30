@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const jwt = require("jsonwebtoken");
 require("./connection");
 const Userdata = require("./userschema");
 const app = express();
@@ -38,18 +38,21 @@ app.get("/api/searchusername/:name", async (req, res) => {
   }
 });
 app.post("/api/registerUser", async (req, res) => {
-  const Userdetails = new Userdata({
-    username: req.body.username,
-    useremail: req.body.useremail,
-    userpasswd: req.body.userpasswd,
-  });
-  try {
-    await Userdetails.save().then(() => {
-      res.status(201).send(Userdetails);
-    });
-  } catch (error) {
-    res.status(400).send(error);
-  }
+
+  
+  
+  // const Userdetails = new Userdata({
+  //   username: req.body.username,
+  //   useremail: req.body.useremail,
+  //   userpasswd: req.body.userpasswd,
+  // });
+  // try {
+  //   await Userdetails.save().then(() => {
+  //     res.status(201).send(Userdetails);
+  //   });
+  // } catch (error) {
+  //   res.status(400).send(error);
+  // }
 });
 app.put("/api/updateuser/:emailid", async (req, res) => {
   try {
@@ -83,6 +86,21 @@ app.delete("/api/deleteuser/:emailid", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+// const jwt = require("jsonwebtoken");
+
+// const createToken = async()=>{
+//   const newtoken = await jwt.sign({_id:"6054a5adbb505943ccc18b3d"},"howtocreateawebstokenforjsonwebtoken",{
+//     expiresIn:"5 mins"
+//   });
+
+//   console.log(newtoken);
+
+//   const userverify = await jwt.verify(newtoken,"howtocreateawebstokenforjsonwebtoken");
+//   console.log(userverify);
+// }
+// createToken();
+
 app.listen(3001, () => {
   console.log("listening on port 3001...");
 });
