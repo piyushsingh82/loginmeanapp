@@ -23,4 +23,4 @@ And you will require to add some packages such as bootstrap redux,etc . you will
 npm install React-bootstrap react-redux
 
 
-MONGOURI=mongodb+srv://admin123:admin123@cluster0.4hxea.mongodb.net/userlogindata?retryWrites=true&w=majority
+
