@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 require('dotenv').config();
 mongoose.Promise = global.Promise;
-//const MONGOURI= "mongodb+srv://admin123:admin123@cluster0.4hxea.mongodb.net/userlogindata?retryWrites=true&w=majority"
  
 mongoose
   .connect(process.env.MONGOURI, {
