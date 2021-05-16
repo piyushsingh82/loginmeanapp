@@ -32,7 +32,7 @@ Userdetailschema.pre("save", async function(next){
     if (this.isModified("userpasswd"))
     {
     // bcrypt password use hash round for 10
-   this.userpasswd  = await bcrypt.hash(this.nuserpasswd,10);
+   this.userpasswd  = await bcrypt.hash(this.userpasswd,10);
    next();
     }
     // console.log(this.password);

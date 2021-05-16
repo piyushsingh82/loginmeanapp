@@ -53,7 +53,7 @@ app.post("/api/registerUser", async (req, res) => {
 
     await Userdetailschema.save().then(() => {
       jwt.sign({ Userdetailschema }, jwtkey, { expiresIn: '300s' }, (err, token) => {
-        res.status(201).send(token);
+        res.status(201).json({token});
       })
       //res.status(201).send(Userdetailschema);
     });
@@ -70,12 +70,12 @@ app.post("/api/login", async (req, res) => {
     const useremailid = await Userdata.findOne({ useremail: email });
     //console.log(useremailid.userpasswd);
     const isMatch = await bcrypt.compare(password, useremailid.userpasswd);
-    console.log(isMatch);
+    console.log("login user exist " + isMatch);
 
 
     if (isMatch) {
       jwt.sign({ useremailid }, jwtkey, { expiresIn: '300s' }, (err, token) => {
-        res.status(200).send(token);
+        res.status(200).json({token});
       });
       // res.status(201).send("Is a valid user");
     }
